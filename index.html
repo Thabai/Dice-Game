@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="dice.css">
+    <title>Dice Game</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Let's play the game!</h1>
+
+</div>
+<div class="wrapper clearfix" >
+    <div class="player-0-panel active-0">
+        <div class="game-panel">
+            <div class="player-name" id="name-0" contenteditable="true">Player 1</div>
+            <div class="player-score-0" id="score-0">0</div>
+            <div class="player-0-rolled-1"><h3>Sorry! You rolled 1.</h3></div>
+            <div class="player-current-box-0">
+                <div class="player-current-label">Current</div>
+                <div class="player-current-score" id="current-0">0</div>
+            </div>
+        </div>
+        <div class="rules-panel" style="display:none">
+            <h3>Goal</h3>
+            <p>Be the first player to reach 30 points.</p>
+        </div>	
+    </div>
+    
+    <div class="player-1-panel">
+        <div class="game-panel">
+            <div class="player-name" id="name-1" contenteditable="true">Player 2</div>
+            <div class="player-score-1" id="score-1">0</div>
+            <div class="player-1-rolled-1"><h3>Oops! You rolled 1.</h3></div>
+            <div class="player-current-box-1">
+                <div class="player-current-label">Current</div>
+                <div class="player-current-score" id="current-1">0</div>
+            </div>
+        </div>	
+        <div class="rules-panel" style="display:none">
+            <h3>Gameplay</h3>
+            <p>Player rolls repeatedly until:</p>
+            <li>a 1 is rolled (score instantly goes to 0)</li>
+            <li>The player chooses to hold (stop rolling)</li>
+            <br>
+            <p>If the player chooses to hold, all of the points rolled during that turn are added to their score.</p>
+        <button class="btn-back">Back to game</button>	
+        </div>
+    </div>
+    <div class="game-panel">
+        
+    <button class="btn-new">New game</button>
+    <button class="btn-rules">Rules</button>
+    <button class="btn-roll">Roll dice</button>
+    <button class="btn-hold">Hold</button>
+    <img src="images/dice6.png" alt="Dice" class="dice">
+    </div>
+    
+</div>
+
+ <script src="dice.js"></script>
+</body>
+</html>
+
+
+
+
