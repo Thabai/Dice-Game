@@ -1,7 +1,7 @@
 
 
-var btnRoll = document.querySelector('.btn-roll');
-var btnHold = document.querySelector('.btn-hold');
+const btnRoll = document.querySelector('.btn-roll');
+const btnHold = document.querySelector('.btn-hold');
 
 init();
 
@@ -9,10 +9,10 @@ init();
 document.querySelector('.btn-roll').addEventListener('click', function(){
 	if (gamePlaying) {
 		// 1. random number
-		var dice = Math.floor(Math.random() * 6) +1;
+		let dice = Math.floor(Math.random() * 6) +1;
 
 		// 2. display result
-        var diceDOM = document.querySelector('.dice');
+        let diceDOM = document.querySelector('.dice');
         diceDOM.style.display = 'block';
         diceDOM.src = 'images/dice' + dice + '.png';
 
@@ -46,7 +46,6 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
 			document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 
 			//check if player won the game
-
 			if (scores[activePlayer] >= 30) {
 				document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
 				document.querySelector('.dice').style.display = 'none';
@@ -66,13 +65,13 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
 document.querySelector('.btn-new').addEventListener('click', init);
 
 document.querySelector('.btn-rules').addEventListener('click', function(){
-	    var games = document.getElementsByClassName('game-panel');
+	    let games = document.getElementsByClassName('game-panel');
 		for(i=0;i<games.length;i++){
 			games[i].style.display = 'none';
 		}
 	    
 	    document.querySelector('.btn-back').style.display = 'block';
-		var rules = document.getElementsByClassName('rules-panel');
+		let rules = document.getElementsByClassName('rules-panel');
 		for(i=0;i<rules.length;i++){
 			rules[i].style.display = 'block';
 		}
@@ -80,13 +79,13 @@ document.querySelector('.btn-rules').addEventListener('click', function(){
 });
 
 document.querySelector('.btn-back').addEventListener('click', function(){
-	    var games = document.getElementsByClassName('game-panel');
+	    let games = document.getElementsByClassName('game-panel');
 		for(i=0;i<games.length;i++){
 			games[i].style.display = 'block';
 		}
 	    
 	    document.querySelector('.btn-back').style.display = 'none';
-		var rules = document.getElementsByClassName('rules-panel');
+		let rules = document.getElementsByClassName('rules-panel');
 		for(i=0;i<rules.length;i++){
 			rules[i].style.display = 'none';
 		}
@@ -98,7 +97,7 @@ function init() {
 	roundScore = 0;
 	activePlayer = 0;
 	gamePlaying = true;
-	// document.querySelector('.dice').style.display = 'none';
+
 	document.getElementById('score-0').textContent = '0';
 	document.getElementById('score-1').textContent = '0';
 	document.getElementById('current-0').textContent = '0';
@@ -116,9 +115,9 @@ function init() {
 
 function nextPlayer() {
 	//next player
-		var icons = document.getElementsByTagName('i');
+		var icons = document.getElementsByTagName('button');
 		for(i=0;i<icons.length;i++){
-			icons[i].classList.remove('color-' + activePlayer);
+			icons[i].classList.remove(activePlayer);
 		}
 		
 		document.querySelector('.dice').style.display = 'none';
@@ -127,7 +126,7 @@ function nextPlayer() {
 		roundScore = 0;
 		
 		for(i=0;i<icons.length;i++){
-			icons[i].classList.add('color-' + activePlayer);
+			icons[i].classList.add(activePlayer);
 		}
 		document.querySelector('.player-' + activePlayer + '-panel').classList.add('active-' + activePlayer);
 		document.querySelector('#current-0').textContent = '0';

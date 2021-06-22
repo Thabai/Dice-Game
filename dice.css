@@ -3,17 +3,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
-}
-
-.clearfix::after {
-    content: "";
-    display: table;
-    clear: both;
 }
 
 body {
-	background: linear-gradient(to right, #2b1394, #a238cc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: linear-gradient(to right, #2b1394, #a238cc); 
     font-family: Lato;
     font-weight: 300;
     position: relative;
@@ -39,6 +32,11 @@ h1, h3, p, li {text-transform: uppercase;}
     overflow: hidden;
 }
 
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
 
 .player-0-panel,
 .player-1-panel {
@@ -49,10 +47,7 @@ h1, h3, p, li {text-transform: uppercase;}
     border-style: ridge;
 }
 
-
-
-/* player*/
-
+/* players*/
 .player-name {
     font-size: 40px;
     text-align: center;
@@ -70,6 +65,8 @@ h1, h3, p, li {text-transform: uppercase;}
     font-weight: 100;
     color: rgb(44, 20, 155);
     margin-bottom: 130px;
+    width: 26%;
+    margin-left: 37%;
 }
 
 .player-score-1 {
@@ -78,21 +75,24 @@ h1, h3, p, li {text-transform: uppercase;}
     font-weight: 100;
     color: #a238cc;
     margin-bottom: 130px;
+    width: 26%;
+    margin-left: 37%;
 }
 
-.player-0-rolled-1 {
+.player-0-rolled-1, .player-1-rolled-1 {
 	text-align: center;
 	margin-bottom: 10px;
 }
 
-.player-1-rolled-1 {
-	text-align: center;
-	margin-bottom: 10px;
+.active-0 { 
+    background-color: rgb(44, 20, 155, 0.5)
 }
-
-.active-0 { background-color: rgb(44, 20, 155, 0.5)}
-.active-1 { background-color: rgb(162, 56, 204, 0.5) }
-.active-0 .player-name, .active-1 .player-name { font-weight: 300; }
+.active-1 { 
+    background-color: rgb(162, 56, 204, 0.5)
+}
+.active-0 .player-name, .active-1 .player-name { 
+    font-weight: 300; 
+}
 
 .active .player-name::after {
     content: "\2022";
@@ -101,7 +101,6 @@ h1, h3, p, li {text-transform: uppercase;}
     color: #2b1394;
     top: -7px;
     right: 10px;
-    
 }
 
 .player-current-box-0 {
@@ -155,8 +154,6 @@ button:focus {
     outline: none;
 }
 
-
-
 .btn-rules { top: 35px;}
 .btn-new { top: 125px;}
 .btn-roll { top: 413px;}
@@ -173,8 +170,20 @@ button:focus {
 }
 
 
-.winner-0 { background-color: rgba(255, 175, 189, 0.5) }
-.winner-1 { background-color: rgba(7, 165, 126, 0.5) }
-.winner-0 .player-name { font-weight: 300; color:rgb(44, 20, 155)}
-.winner-1 .player-name { font-weight: 300; color: #a238cc}
+.winner-0, .winner-1 { 
+background: url(images/Fireworks-display-009.jpg);
+background-position: center;
+background-repeat: no-repeat;
+background-size: 115%;
+}
+.winner-0 .player-name, .winner-0 .player-score-0  { 
+    font-weight: 700; 
+    color: white;
+    background-color:rgb(44, 20, 155);
+}
+.winner-1 .player-name, .winner-1 .player-score-1 { 
+    font-weight: 700; 
+    color: white;
+    background-color: #a238cc;
+}
 
