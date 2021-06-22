@@ -24,7 +24,6 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
 			document.querySelector('#current-' + activePlayer).textContent = roundScore;
 		} else {
 			//disable button
-
 			disableBtn(btnRoll, 1000);
 			document.querySelector('.player-'+activePlayer+'-rolled-1').style.visibility = 'visible';
 			nextPlayer();		
@@ -34,11 +33,8 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
 		
 });
 
-
-
 document.querySelector('.btn-hold').addEventListener('click', function(){
 		if (gamePlaying) {
-			disableBtn(btnRoll, 1000);
 			// Add current score to global score
 			scores[activePlayer] += roundScore;	
 
@@ -61,9 +57,60 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
 		
 });
 
+function nextPlayer() {
+	//next player
+		var icons = document.getElementsByTagName('button');
+		for(i=0;i<icons.length;i++){
+			icons[i].classList.remove(activePlayer);
+		}
+		
+		document.querySelector('.dice').style.display = 'none';
+		document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active-' + activePlayer);
+		activePlayer ===0 ? activePlayer = 1 : activePlayer = 0;
+		roundScore = 0;
+		
+		for(i=0;i<icons.length;i++){
+			icons[i].classList.add(activePlayer);
+		}
+		document.querySelector('.player-' + activePlayer + '-panel').classList.add('active-' + activePlayer);
+		document.querySelector('#current-0').textContent = '0';
+		document.querySelector('#current-1').textContent = '0';
+}
+
+function init() {
+	scores = [0,0];
+	roundScore = 0;
+	activePlayer = 0;
+	gamePlaying = true;
+
+	document.getElementById('score-0').textContent = '0';
+	document.getElementById('score-1').textContent = '0';
+	document.getElementById('current-0').textContent = '0';
+	document.getElementById('current-1').textContent = '0';
+	document.querySelector('.player-0-rolled-1').style.visibility = 'hidden';
+	document.querySelector('.player-1-rolled-1').style.visibility = 'hidden';
+	
+	document.querySelector('#name-0').textContent = 'Player 1';
+	document.querySelector('#name-1').textContent = 'Player 2';
+	document.querySelector('.player-0-panel').classList.add('active-0');
+	document.querySelector('.player-0-panel').classList.remove('winner-0');
+	document.querySelector('.player-1-panel').classList.remove('winner-1');
+
+}
+
+function disableBtn(btn, time) {
+	   //disable button
+		btn.disabled = true;
+      	setTimeout(function(){btn.disabled = false;},time);
+}
+
+function hideRolledMsg(){
+	document.querySelector('.player-0-rolled-1').style.visibility = 'hidden';
+	document.querySelector('.player-1-rolled-1').style.visibility = 'hidden';
+}
 
 document.querySelector('.btn-new').addEventListener('click', init);
-
+//rules
 document.querySelector('.btn-rules').addEventListener('click', function(){
 	    let games = document.getElementsByClassName('game-panel');
 		for(i=0;i<games.length;i++){
@@ -91,57 +138,3 @@ document.querySelector('.btn-back').addEventListener('click', function(){
 		}
 	
 });
-
-function init() {
-	scores = [0,0];
-	roundScore = 0;
-	activePlayer = 0;
-	gamePlaying = true;
-
-	document.getElementById('score-0').textContent = '0';
-	document.getElementById('score-1').textContent = '0';
-	document.getElementById('current-0').textContent = '0';
-	document.getElementById('current-1').textContent = '0';
-	document.querySelector('.player-0-rolled-1').style.visibility = 'hidden';
-	document.querySelector('.player-1-rolled-1').style.visibility = 'hidden';
-	
-	document.querySelector('#name-0').textContent = 'Player 1';
-	document.querySelector('#name-1').textContent = 'Player 2';
-	document.querySelector('.player-0-panel').classList.add('active-0');
-	document.querySelector('.player-0-panel').classList.remove('winner-0');
-	document.querySelector('.player-1-panel').classList.remove('winner-1');
-
-}
-
-function nextPlayer() {
-	//next player
-		var icons = document.getElementsByTagName('button');
-		for(i=0;i<icons.length;i++){
-			icons[i].classList.remove(activePlayer);
-		}
-		
-		document.querySelector('.dice').style.display = 'none';
-		document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active-' + activePlayer);
-		activePlayer ===0 ? activePlayer = 1 : activePlayer = 0;
-		roundScore = 0;
-		
-		for(i=0;i<icons.length;i++){
-			icons[i].classList.add(activePlayer);
-		}
-		document.querySelector('.player-' + activePlayer + '-panel').classList.add('active-' + activePlayer);
-		document.querySelector('#current-0').textContent = '0';
-		document.querySelector('#current-1').textContent = '0';
-}
-
-function disableBtn(btn, time) {
-	   //disable button
-		btn.disabled = true;
-      	setTimeout(function(){btn.disabled = false;},time);
-}
-
-function hideRolledMsg(){
-	document.querySelector('.player-0-rolled-1').style.visibility = 'hidden';
-	document.querySelector('.player-1-rolled-1').style.visibility = 'hidden';
-}
-
-
