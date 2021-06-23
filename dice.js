@@ -28,9 +28,7 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
 			document.querySelector('.player-'+activePlayer+'-rolled-1').style.visibility = 'visible';
 			nextPlayer();		
 		}
-	}
-	
-		
+	}	
 });
 
 document.querySelector('.btn-hold').addEventListener('click', function(){
@@ -53,8 +51,6 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
 				nextPlayer();
 			}
 		}
-		
-		
 });
 
 function nextPlayer() {
@@ -67,6 +63,7 @@ function nextPlayer() {
 		document.querySelector('.dice').style.display = 'none';
 		document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active-' + activePlayer);
 		activePlayer ===0 ? activePlayer = 1 : activePlayer = 0;
+		//stop score being carried over to other player
 		roundScore = 0;
 		
 		for(i=0;i<icons.length;i++){
@@ -87,11 +84,11 @@ function init() {
 	document.getElementById('score-1').textContent = '0';
 	document.getElementById('current-0').textContent = '0';
 	document.getElementById('current-1').textContent = '0';
-	document.querySelector('.player-0-rolled-1').style.visibility = 'hidden';
-	document.querySelector('.player-1-rolled-1').style.visibility = 'hidden';
+
+	hideRolledMsg()
 	
-	document.querySelector('#name-0').textContent = 'Player 1';
-	document.querySelector('#name-1').textContent = 'Player 2';
+	document.querySelector('#name-0').textContent = 'Enter name';
+	document.querySelector('#name-1').textContent = 'Enter name';
 	document.querySelector('.player-0-panel').classList.add('active-0');
 	document.querySelector('.player-0-panel').classList.remove('winner-0');
 	document.querySelector('.player-1-panel').classList.remove('winner-1');
@@ -109,8 +106,9 @@ function hideRolledMsg(){
 	document.querySelector('.player-1-rolled-1').style.visibility = 'hidden';
 }
 
+//rules tab
 document.querySelector('.btn-new').addEventListener('click', init);
-//rules
+
 document.querySelector('.btn-rules').addEventListener('click', function(){
 	    let games = document.getElementsByClassName('game-panel');
 		for(i=0;i<games.length;i++){

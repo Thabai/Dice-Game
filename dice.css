@@ -64,7 +64,7 @@ h1, h3, p, li {text-transform: uppercase;}
     font-size: 80px;
     font-weight: 100;
     color: rgb(44, 20, 155);
-    margin-bottom: 130px;
+    margin-bottom: 50px;
     width: 26%;
     margin-left: 37%;
 }
@@ -74,14 +74,18 @@ h1, h3, p, li {text-transform: uppercase;}
     font-size: 80px;
     font-weight: 100;
     color: #a238cc;
-    margin-bottom: 130px;
+    margin-bottom: 50px;
     width: 26%;
     margin-left: 37%;
 }
 
-.player-0-rolled-1, .player-1-rolled-1 {
-	text-align: center;
+.player-0-rolled-1 img, .player-1-rolled-1 img {
 	margin-bottom: 10px;
+    width: 100px;
+}
+
+.player-0-rolled-1, .player-1-rolled-1 {
+text-align: center;
 }
 
 .active-0 { 
