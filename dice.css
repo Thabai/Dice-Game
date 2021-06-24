@@ -82,6 +82,8 @@ h1, h3, p, li {text-transform: uppercase;}
 .player-0-rolled-1 img, .player-1-rolled-1 img {
 	margin-bottom: 10px;
     width: 100px;
+    border-radius: 15%;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
 }
 
 .player-0-rolled-1, .player-1-rolled-1 {
@@ -149,7 +151,6 @@ button {
     text-transform: uppercase;
     cursor: pointer;
     font-weight: 300;
-    transition: background-color 0.3s, color 0.3s;
 }
 
 button:hover { font-weight: 600; }
@@ -167,6 +168,7 @@ button:focus {
 .dice {
     display: block;
     position: absolute;
+    border-radius: 15%;
     left: 47%;
     top: 200px;  
     height: 100px;

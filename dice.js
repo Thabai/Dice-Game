@@ -26,7 +26,8 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
 			//disable button
 			disableBtn(btnRoll, 1000);
 			document.querySelector('.player-'+activePlayer+'-rolled-1').style.visibility = 'visible';
-			nextPlayer();		
+			nextPlayer();	
+			setTimeout(function(){hideRolledMsg();},1000);
 		}
 	}	
 });
